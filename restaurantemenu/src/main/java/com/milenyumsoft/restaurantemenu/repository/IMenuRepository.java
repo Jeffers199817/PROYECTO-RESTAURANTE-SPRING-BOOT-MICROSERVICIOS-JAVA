@@ -1,4 +1,4 @@
-package com.milenyumsoft.restauranteingredientes.repository;
+package com.milenyumsoft.restaurantemenu.repository;
 
 import com.milenyumsoft.restauranteingredientes.model.menu;
 import org.springframework.data.jpa.repository.JpaRepository;

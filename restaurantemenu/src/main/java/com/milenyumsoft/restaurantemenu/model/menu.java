@@ -1,4 +1,4 @@
-package com.milenyumsoft.restauranteingredientes.model;
+package com.milenyumsoft.restaurantemenu.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
