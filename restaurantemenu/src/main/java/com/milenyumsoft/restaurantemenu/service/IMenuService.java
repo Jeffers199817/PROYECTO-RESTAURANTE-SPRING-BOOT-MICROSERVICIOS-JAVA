@@ -1,11 +1,12 @@
 package com.milenyumsoft.restaurantemenu.service;
 
-import java.awt.*;
+import com.milenyumsoft.restaurantemenu.model.Menu;
 import java.util.List;
 
 public interface IMenuService {
 
-public void addMenu(Menu menu);
+public void createdMenu(Menu menu);
+
 
 public void deleteMenu(Long id);
 
