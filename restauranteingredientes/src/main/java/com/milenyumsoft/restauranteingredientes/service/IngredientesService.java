@@ -15,27 +15,38 @@ public class IngredientesService implements IIngredientesService{
     private IIngredienteRepository ingredienteRepository;
     @Override
     public void addIngrediente(Ingrediente ingrediente) {
+        ingredienteRepository.save(ingrediente);
 
 
     }
 
     @Override
     public void deleteIngrediente(Long id) {
+        ingredienteRepository.deleteById(id);
 
     }
 
     @Override
     public List<Ingrediente> getIngredientes() {
-        return List.of();
+
+        return ingredienteRepository.findAll();
     }
 
     @Override
     public Ingrediente getIngrediente(Long id) {
-        return null;
+        return ingredienteRepository.findById(id).get();
     }
 
     @Override
     public Ingrediente updateIngrediente(Ingrediente ingrediente) {
-        return null;
+
+        Ingrediente ing = ingredienteRepository.findById(ingrediente.getId_ingrediente()).get();
+
+        ing.setNombre_ingrediente(ing.getNombre_ingrediente());
+        ing.setLista_platos(ing.getLista_platos());
+
+        this.addIngrediente(ing);
+
+        return  ing;
     }
 }
