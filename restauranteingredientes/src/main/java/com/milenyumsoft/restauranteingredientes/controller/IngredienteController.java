@@ -3,10 +3,9 @@ package com.milenyumsoft.restauranteingredientes.controller;
 import com.milenyumsoft.restauranteingredientes.model.Ingrediente;
 import com.milenyumsoft.restauranteingredientes.service.IIngredientesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/ingrediente")
@@ -19,6 +18,13 @@ public class IngredienteController {
     public String crearIngrediente(@RequestBody Ingrediente ingrediente){
         ingredientesService.addIngrediente(ingrediente);
         return "Ingrediente creado, exitosamente";
+    }
+
+
+    @GetMapping("/listar")
+    public List<Ingrediente> listarIngrediente(){
+
+       return ingredientesService.getIngredientes();
     }
 
 }
