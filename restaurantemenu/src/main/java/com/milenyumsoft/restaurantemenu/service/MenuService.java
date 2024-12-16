@@ -9,6 +9,7 @@ import com.milenyumsoft.restaurantemenu.model.Menu;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MenuService implements IMenuService{
@@ -24,10 +25,10 @@ public class MenuService implements IMenuService{
 
         String nombrePlato = menu.getNombrePlato();
 
-       List<Ingrediente> listaIngrediente=  consumirApi.getForObject("http://localhost:9001/ingrediente/listar/ingredientes/nombreplato/"+nombrePlato , List.class);
+       List<Map<String,Object>> listaIngrediente=  consumirApi.getForObject("http://localhost:9001/ingrediente/listar/ingredientes/nombreplato/"+nombrePlato , List.class);
 
-       for(Ingrediente ingrediente: listaIngrediente) {
-              menugit ad.setListaIngredientes.add(ingrediente.getNombre_ingrediente());
+       for(Map<String, Object> ingrediente: listaIngrediente) {
+              menu.getListaIngredientes().add((String) ingrediente.get("nombre_ingrediente"));
        }
 
 
