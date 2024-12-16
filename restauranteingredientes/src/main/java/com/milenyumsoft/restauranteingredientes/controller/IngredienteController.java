@@ -27,7 +27,7 @@ public class IngredienteController {
        return ingredientesService.getIngredientes();
     }
 
-    @GetMapping( "/listat/{id}")
+    @GetMapping( "/listar/{id}")
     public Ingrediente listarIngredienteid(@PathVariable Long id){
         return ingredientesService.getIngrediente(id);
 
@@ -38,6 +38,13 @@ public class IngredienteController {
         ingredientesService.updateIngrediente(ingrediente);
         Ingrediente ing = ingredientesService.getIngrediente(ingrediente.getId_ingrediente());
         return ing;
+    }
+
+    @GetMapping("/listar/ingredientes/nombreplato/{nombrePlato}")
+    public List<Ingrediente> listarIngredientesPorPlato(@PathVariable String nombrePlato){
+        System.out.println("nombrePlato: " + nombrePlato);
+        System.out.println(ingredientesService.getIngredientesPorPlato(nombrePlato));
+        return ingredientesService.getIngredientesPorPlato(nombrePlato);
     }
 
 

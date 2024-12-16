@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 
 import com.milenyumsoft.restaurantemenu.model.Menu;
+import org.springframework.web.client.RestTemplate;
+
 import java.util.List;
 
 @Service
@@ -12,10 +14,16 @@ public class MenuService implements IMenuService{
 
    @Autowired
     private IMenuRepository menuRepository;
+   @Autowired
+   private RestTemplate consumirApi;
 
 
     @Override
     public void createdMenu(Menu menu) {
+
+        String nombrePlato = menu.getNombrePlato();
+
+        consumirApi.getForObject("http://localhost:9001/ingrediente/listar/ingredientes/nombreplato/"+nombrePlato , List.class);
         menuRepository.save(menu);
 
     }

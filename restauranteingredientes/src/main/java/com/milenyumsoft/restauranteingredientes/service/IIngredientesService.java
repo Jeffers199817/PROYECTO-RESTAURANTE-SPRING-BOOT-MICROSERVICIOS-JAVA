@@ -16,4 +16,5 @@ public interface IIngredientesService {
 
     public Ingrediente updateIngrediente(Ingrediente ingrediente);
 
+    public List<Ingrediente> getIngredientesPorPlato(String nombrePlato);
 }

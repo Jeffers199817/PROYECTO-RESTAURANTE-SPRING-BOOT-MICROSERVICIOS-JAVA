@@ -49,4 +49,11 @@ public class IngredientesService implements IIngredientesService{
 
         return  ing;
     }
+
+    @Override
+    public List<Ingrediente> getIngredientesPorPlato(String nombrePlato) {
+
+        return ingredienteRepository.findAllBy_ingredientes_nombrePlato(nombrePlato);
+
+    }
 }
