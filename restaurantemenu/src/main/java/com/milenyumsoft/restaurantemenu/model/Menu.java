@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -24,5 +25,5 @@ public class Menu {
     private String descripcionPlato;
 
     @ElementCollection
-    private List<String> listaIngredientes;
+    private List<String> listaIngredientes= new ArrayList<>();
 }

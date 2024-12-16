@@ -1,4 +1,5 @@
 package com.milenyumsoft.restaurantemenu.service;
+import com.milenyumsoft.restaurantemenu.model.Ingrediente;
 import com.milenyumsoft.restaurantemenu.repository.IMenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,13 @@ public class MenuService implements IMenuService{
 
         String nombrePlato = menu.getNombrePlato();
 
-        consumirApi.getForObject("http://localhost:9001/ingrediente/listar/ingredientes/nombreplato/"+nombrePlato , List.class);
+       List<Ingrediente> listaIngrediente=  consumirApi.getForObject("http://localhost:9001/ingrediente/listar/ingredientes/nombreplato/"+nombrePlato , List.class);
+
+       for(Ingrediente ingrediente: listaIngrediente) {
+              menugit ad.setListaIngredientes.add(ingrediente.getNombre_ingrediente());
+       }
+
+
         menuRepository.save(menu);
 
     }
