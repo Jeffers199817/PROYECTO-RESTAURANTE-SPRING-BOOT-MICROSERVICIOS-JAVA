@@ -27,4 +27,11 @@ public class IngredienteController {
        return ingredientesService.getIngredientes();
     }
 
+    @GetMapping( "/listat/{id}")
+    public Ingrediente listarIngredienteid(@PathVariable Long id){
+        return ingredientesService.getIngrediente(id);
+
+    }
+
+
 }
