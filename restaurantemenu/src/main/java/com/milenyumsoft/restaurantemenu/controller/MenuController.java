@@ -41,7 +41,9 @@ public class MenuController {
     @PutMapping("/actualizar")
     public Menu actualizarMenu(@RequestBody Menu menu){
         menuService.updateMenu(menu);
+
        Menu men=  menuService.getMenu(menu.getIdPlato());
+
         return men;
 
 

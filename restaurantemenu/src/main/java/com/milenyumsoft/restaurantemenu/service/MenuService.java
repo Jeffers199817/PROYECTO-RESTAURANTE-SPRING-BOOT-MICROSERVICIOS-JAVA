@@ -38,6 +38,7 @@ public class MenuService implements IMenuService{
 
     @Override
     public void deleteMenu(Long id) {
+        System.out.println("Menu actual");
         menuRepository.deleteById(id);
 
     }
