@@ -33,5 +33,12 @@ public class IngredienteController {
 
     }
 
+    @PutMapping("/actualizar")
+    public Ingrediente actualizarIngrediente(@RequestBody Ingrediente ingrediente) {
+        ingredientesService.updateIngrediente(ingrediente);
+        Ingrediente ing = ingredientesService.getIngrediente(ingrediente.getId_ingrediente());
+        return ing;
+    }
+
 
 }
